@@ -1,0 +1,37 @@
+S X Finder
+.DS_Store
+
+# Xcode per-user config
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+*.xcworkspace
+xcuserdata
+
+# Build products
+build/
+*.o
+*.LinkFileList
+*.hmap
+
+# Automatic backup files
+*~.nib/
+*.swp
+*~
+*.dat
+*.dep
+
+# Cocoa Pods
+Pods/
+www/index.html
+www/css/index.css
+www/img/logo.png
+www/js/ActivityControl.js
+www/js/index.js
+
+# Tech Documentation
+Documentation
+
