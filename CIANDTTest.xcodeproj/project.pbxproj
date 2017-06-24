@@ -14,6 +14,8 @@
 		B65F1AF21EFE009100B52D51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B65F1AF01EFE009100B52D51 /* LaunchScreen.storyboard */; };
 		B65F1AFB1EFE02E200B52D51 /* UserWeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B65F1AFA1EFE02E200B52D51 /* UserWeatherViewController.m */; };
 		B65F1AFE1EFE02FB00B52D51 /* CityWeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B65F1AFD1EFE02FB00B52D51 /* CityWeatherViewController.m */; };
+		B65F1B031EFE079B00B52D51 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B65F1B021EFE079B00B52D51 /* FBSDKLoginKit.framework */; };
+		B65F1B071EFE092400B52D51 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B65F1B061EFE092400B52D51 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,9 @@
 		B65F1AFA1EFE02E200B52D51 /* UserWeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserWeatherViewController.m; sourceTree = "<group>"; };
 		B65F1AFC1EFE02FB00B52D51 /* CityWeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityWeatherViewController.h; sourceTree = "<group>"; };
 		B65F1AFD1EFE02FB00B52D51 /* CityWeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityWeatherViewController.m; sourceTree = "<group>"; };
+		B65F1B021EFE079B00B52D51 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		B65F1B051EFE092400B52D51 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		B65F1B061EFE092400B52D51 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B65F1B031EFE079B00B52D51 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +75,7 @@
 				B65F1AEE1EFE009100B52D51 /* Assets.xcassets */,
 				B65F1AF31EFE009100B52D51 /* Info.plist */,
 				B65F1ADF1EFE009100B52D51 /* Supporting Files */,
+				B65F1B041EFE07A700B52D51 /* Frameworks */,
 			);
 			path = CIANDTTest;
 			sourceTree = "<group>";
@@ -97,6 +104,8 @@
 				B65F1AFA1EFE02E200B52D51 /* UserWeatherViewController.m */,
 				B65F1AFC1EFE02FB00B52D51 /* CityWeatherViewController.h */,
 				B65F1AFD1EFE02FB00B52D51 /* CityWeatherViewController.m */,
+				B65F1B051EFE092400B52D51 /* LoginViewController.h */,
+				B65F1B061EFE092400B52D51 /* LoginViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -106,6 +115,14 @@
 			children = (
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		B65F1B041EFE07A700B52D51 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B65F1B021EFE079B00B52D51 /* FBSDKLoginKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +200,7 @@
 				B65F1AE41EFE009100B52D51 /* AppDelegate.m in Sources */,
 				B65F1AFE1EFE02FB00B52D51 /* CityWeatherViewController.m in Sources */,
 				B65F1AE11EFE009100B52D51 /* main.m in Sources */,
+				B65F1B071EFE092400B52D51 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +320,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CIANDTTest/Frameworks",
+				);
 				INFOPLIST_FILE = CIANDTTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ciandt.CIANDTTest;
@@ -313,6 +335,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CIANDTTest/Frameworks",
+				);
 				INFOPLIST_FILE = CIANDTTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ciandt.CIANDTTest;
