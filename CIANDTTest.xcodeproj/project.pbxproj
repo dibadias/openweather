@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6407C971F003CA60040DE47 /* LoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B6407C961F003CA60040DE47 /* LoginManager.m */; };
 		B65F1AE11EFE009100B52D51 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B65F1AE01EFE009100B52D51 /* main.m */; };
 		B65F1AE41EFE009100B52D51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B65F1AE31EFE009100B52D51 /* AppDelegate.m */; };
 		B65F1AED1EFE009100B52D51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B65F1AEB1EFE009100B52D51 /* Main.storyboard */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B6407C951F003CA60040DE47 /* LoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginManager.h; sourceTree = "<group>"; };
+		B6407C961F003CA60040DE47 /* LoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginManager.m; sourceTree = "<group>"; };
 		B65F1ADC1EFE009100B52D51 /* CIANDTTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CIANDTTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B65F1AE01EFE009100B52D51 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B65F1AE21EFE009100B52D51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -75,6 +78,7 @@
 		B65F1ADE1EFE009100B52D51 /* CIANDTTest */ = {
 			isa = PBXGroup;
 			children = (
+				B69A058D1F000364002C0385 /* Login */,
 				B65F1B011EFE032400B52D51 /* Network */,
 				B65F1B001EFE031500B52D51 /* ViewController */,
 				B65F1AFF1EFE030600B52D51 /* Storyboard */,
@@ -109,12 +113,12 @@
 		B65F1B001EFE031500B52D51 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				B65F1B051EFE092400B52D51 /* LoginViewController.h */,
+				B65F1B061EFE092400B52D51 /* LoginViewController.m */,
 				B65F1AF91EFE02E200B52D51 /* UserWeatherViewController.h */,
 				B65F1AFA1EFE02E200B52D51 /* UserWeatherViewController.m */,
 				B65F1AFC1EFE02FB00B52D51 /* CityWeatherViewController.h */,
 				B65F1AFD1EFE02FB00B52D51 /* CityWeatherViewController.m */,
-				B65F1B051EFE092400B52D51 /* LoginViewController.h */,
-				B65F1B061EFE092400B52D51 /* LoginViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -134,6 +138,15 @@
 				B65F1B021EFE079B00B52D51 /* FBSDKLoginKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B69A058D1F000364002C0385 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B6407C951F003CA60040DE47 /* LoginManager.h */,
+				B6407C961F003CA60040DE47 /* LoginManager.m */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B65F1AFB1EFE02E200B52D51 /* UserWeatherViewController.m in Sources */,
+				B6407C971F003CA60040DE47 /* LoginManager.m in Sources */,
 				B65F1AE41EFE009100B52D51 /* AppDelegate.m in Sources */,
 				B65F1AFE1EFE02FB00B52D51 /* CityWeatherViewController.m in Sources */,
 				B65F1AE11EFE009100B52D51 /* main.m in Sources */,
@@ -315,6 +329,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -353,6 +368,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/CIANDTTest/Frameworks",
 				);
+				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = CIANDTTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ciandt.CIANDTTest;

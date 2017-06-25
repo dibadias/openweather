@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "LoginManager.h"
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController <FBSDKLoginButtonDelegate>
+
+@property IBOutlet FBSDKLoginButton *facebookLoginView;
+@property IBOutlet UIActivityIndicatorView *activityIndicator;
+
 
 @end

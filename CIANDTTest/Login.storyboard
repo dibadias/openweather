@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DKz-hf-f46">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DKz-hf-f46">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,12 +20,65 @@
                     <view key="view" contentMode="scaleToFill" id="XNW-KQ-jJ2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.4210336914163928" green="0.54306444373359319" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="ZVj-9Z-HB4" userLabel="Image View Logo">
+                                <rect key="frame" x="112" y="112" width="150" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="e1I-6g-hmD"/>
+                                    <constraint firstAttribute="width" constant="150" id="hTZ-rz-vP0"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bN3-Bl-BpP" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="112" y="236" width="150" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="9VR-5a-FaZ"/>
+                                    <constraint firstAttribute="width" constant="150" id="to9-IR-0zf"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="DKz-hf-f46" id="1cj-pR-s70"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="EzO-xK-ABY">
+                                <rect key="frame" x="177" y="312" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="BeZ-1n-htN"/>
+                                    <constraint firstAttribute="width" constant="20" id="tSO-3n-e7h"/>
+                                </constraints>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dibadile@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Xx-Nr-oBT">
+                                <rect key="frame" x="84" y="626" width="207" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="207" id="e85-YJ-VSN"/>
+                                    <constraint firstAttribute="height" constant="21" id="kB2-QH-NOw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EzO-xK-ABY" firstAttribute="centerX" secondItem="XNW-KQ-jJ2" secondAttribute="centerX" id="9fF-gL-fhh"/>
+                            <constraint firstItem="EzO-xK-ABY" firstAttribute="top" secondItem="bN3-Bl-BpP" secondAttribute="bottom" constant="48" id="KhX-3B-HcP"/>
+                            <constraint firstItem="bN3-Bl-BpP" firstAttribute="centerX" secondItem="XNW-KQ-jJ2" secondAttribute="centerX" id="OAA-Y8-q3A"/>
+                            <constraint firstItem="Spm-wT-UhC" firstAttribute="top" secondItem="3Xx-Nr-oBT" secondAttribute="bottom" constant="20" id="Yp0-82-kIF"/>
+                            <constraint firstItem="ZVj-9Z-HB4" firstAttribute="centerX" secondItem="XNW-KQ-jJ2" secondAttribute="centerX" id="dTe-a8-Ugj"/>
+                            <constraint firstItem="3Xx-Nr-oBT" firstAttribute="centerX" secondItem="XNW-KQ-jJ2" secondAttribute="centerX" id="k89-sE-piO"/>
+                            <constraint firstItem="bN3-Bl-BpP" firstAttribute="top" secondItem="ZVj-9Z-HB4" secondAttribute="bottom" constant="44" id="kB4-UZ-2b9"/>
+                            <constraint firstItem="ZVj-9Z-HB4" firstAttribute="top" secondItem="auc-Pf-YeM" secondAttribute="bottom" constant="92" id="niv-ev-OEr"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="EzO-xK-ABY" id="BSV-EF-a7z"/>
+                        <outlet property="facebookLoginView" destination="bN3-Bl-BpP" id="PdX-jJ-7Bi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fXi-Ec-kwf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-14" y="8"/>
+            <point key="canvasLocation" x="-15.199999999999999" y="7.6461769115442282"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="146" height="78"/>
+    </resources>
 </document>

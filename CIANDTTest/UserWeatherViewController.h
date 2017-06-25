@@ -10,4 +10,6 @@
 
 @interface UserWeatherViewController : UIViewController
 
+- (IBAction)touchLogoutButton:(id)sender;
+
 @end

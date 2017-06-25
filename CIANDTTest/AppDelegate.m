@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "LoginManager.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @interface AppDelegate ()
@@ -20,9 +21,10 @@
     // Override point for cust
     [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
 
+    [LoginManager.sharedInstance checkLogin];
+    
     return YES;
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -57,6 +59,16 @@
                                                         sourceApplication:sourceApplication
                                                                annotation:annotation];
     return handled;
-} 
+}
+
+#pragma mark Facebook Login Check
+-(void)openStoryboardScene:(NSString *)storyBoardName andViewControllerIdentifier:(NSString *)vcIdentifier {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyBoardName bundle:nil];
+    UIViewController *viewController =  [storyboard instantiateViewControllerWithIdentifier:vcIdentifier];
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    self.window.rootViewController = viewController;
+    [self.window makeKeyAndVisible];    
+}
+
 
 @end

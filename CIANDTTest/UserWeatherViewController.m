@@ -7,6 +7,8 @@
 //
 
 #import "UserWeatherViewController.h"
+#import "AppDelegate.h"
+#import "LoginManager.h"
 
 @interface UserWeatherViewController ()
 
@@ -16,12 +18,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = [LoginManager.sharedInstance userName];
+    
+    
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark IBActions
+- (IBAction)touchLogoutButton:(id)sender {
+    [LoginManager.sharedInstance logoutAndClearUser];
+    [self.view removeFromSuperview];
 }
 
 /*
