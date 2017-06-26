@@ -12,8 +12,4 @@ target 'CIANDTTest' do
     #Util
     pod 'Mantle', '~> 1.5'
 
-    #UI
-    pod 'DZNEmptyDataSet', '~> 1.8.1'
-    pod 'SVProgressHUD', '~> 2.0.3'
-
 end

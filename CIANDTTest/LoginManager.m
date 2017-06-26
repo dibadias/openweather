@@ -23,6 +23,26 @@ static dispatch_once_t onceUserManager;
     return loginManager;
 }
 
+- (void)checkLogin{
+    
+    NSString *storyBoardName;
+    NSString *viewControllerIdentifier;
+    
+    if ([FBSDKAccessToken currentAccessToken]) {
+        if (!self.userId) {
+            [self updateFacebookProfile];
+        }
+        storyBoardName           = @"Main";
+        viewControllerIdentifier = @"MainTabbarID";
+    } else {
+        storyBoardName           = @"Login";
+        viewControllerIdentifier = @"LoginViewControllerIdentifier";
+    }
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate openStoryboardScene:storyBoardName andViewControllerIdentifier:viewControllerIdentifier];
+}
+
 - (void)setUpUserInfo:(NSDictionary *)userDict  {
     if (userDict[@"id"]) {
         self.userId = userDict[@"id"];
@@ -33,12 +53,12 @@ static dispatch_once_t onceUserManager;
     }
     
     if (userDict[@"picture"][@"data"][@"url"]) {
-        NSLog(@"%@", userDict[@"picture"][@"data"][@"url"]);
+        
         NSURL *url = [[NSURL alloc] initWithString: userDict[@"picture"][@"data"][@"url"]];
         NSData *imageData = [[NSData alloc] initWithContentsOfURL:url];
         self.profilePhoto = [[UIImage alloc] initWithData:imageData];
     }
-    
+
     [self checkLogin];
 }
 
@@ -54,21 +74,20 @@ static dispatch_once_t onceUserManager;
     [self checkLogin];
 }
 
-- (void)checkLogin{
+-(void)updateFacebookProfile {
     
-    NSString *storyBoardName;
-    NSString *viewControllerIdentifier;
-    
-    if ([FBSDKAccessToken currentAccessToken]) {
-        storyBoardName           = @"Main";
-        viewControllerIdentifier = @"MainTabbarID";
-    } else {
-        storyBoardName           = @"Login";
-        viewControllerIdentifier = @"LoginViewControllerIdentifier";
-    }
-    
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate openStoryboardScene:storyBoardName andViewControllerIdentifier:viewControllerIdentifier];
+        NSDictionary *parameters = [[NSDictionary alloc] initWithObjectsAndKeys: @"id, email, name, picture.type(large)", @"fields", nil];
+        
+        FBSDKGraphRequest *graphRequest = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:parameters];
+        
+        [graphRequest startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+            if (error) {
+                NSLog(@"%@",error);
+            } else {
+                NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:result];
+                [LoginManager.sharedInstance setUpUserInfo:dict];
+            }
+        }];
 }
-    
+
 @end

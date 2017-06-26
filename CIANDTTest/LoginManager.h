@@ -15,10 +15,11 @@
 
 @property NSString * userName;
 @property NSString * userId;
-@property UIImage * profilePhoto;
+@property UIImage  * profilePhoto;
 
 - (void)setUpUserInfo:(NSDictionary *)userDict;
 - (void)checkLogin;
 - (void)logoutAndClearUser;
+- (void)updateFacebookProfile;
 
 @end

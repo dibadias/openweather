@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  CIANDTTest
+
+  Created by Diego Batista Dias Leite on 25/06/17.
+  Copyright © 2017 Diego Batista Dias Leite. All rights reserved.
+*/
+"MyWeather" = "My Location";
+"London"    = "London";
+"Ops"       = "Ops";
+"FacebookError" = "Connection with facebook failed. Try Again.";
+"ConnectionError" = "Connection with Weather failed. Try Again.";

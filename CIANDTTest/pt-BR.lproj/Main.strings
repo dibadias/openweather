@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "- ºC"; ObjectID = "IXW-eD-fku"; */
+"IXW-eD-fku.text" = "- ºC";
+
+/* Class = "UILabel"; text = "Loaded by SecondViewController"; ObjectID = "NDk-cv-Gan"; */
+"NDk-cv-Gan.text" = "Loaded by SecondViewController";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "SqM-dn-NDw"; */
+"SqM-dn-NDw.text" = "-";
+
+/* Class = "UITabBarItem"; title = "Here"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "Here";
+
+/* Class = "UITabBarItem"; title = "London"; ObjectID = "cPa-gy-q4n"; */
+"cPa-gy-q4n.title" = "London";
+
+/* Class = "UIBarButtonItem"; title = "Logout"; ObjectID = "jv3-OP-DRh"; */
+"jv3-OP-DRh.title" = "Logout";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "py2-R6-4A3"; */
+"py2-R6-4A3.text" = "-";
+
+/* Class = "UILabel"; text = "Second View"; ObjectID = "zEq-FU-wV5"; */
+"zEq-FU-wV5.text" = "Second View";

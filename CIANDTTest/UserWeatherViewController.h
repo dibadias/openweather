@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import "WeatherViewController.h"
 
-@interface UserWeatherViewController : UIViewController
+@interface UserWeatherViewController : WeatherViewController <CLLocationManagerDelegate>
 
-- (IBAction)touchLogoutButton:(id)sender;
+
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *facebookLogoutButton;
+
+- (IBAction)touchLogoutButton;
 
 @end

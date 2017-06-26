@@ -33,22 +33,21 @@
     self.facebookLoginView = [[FBSDKLoginButton alloc] init];
     self.facebookLoginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
     self.facebookLoginView.delegate = self;
-    
 }
 
 #pragma mark Facebook Delegates
 
 -(void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
     if (error) {
-        //Melhorar
+        [self showAlertWithTitle:NSLocalizedString(@"Ops", nil) andMessage:NSLocalizedString(@"FacebookError", nil)];
         NSLog(@"Error! : %@", error.localizedDescription);
         return;
     } else if (result.isCancelled) {
-        //Melhorar
-        NSLog(@"User cancel login");
         return;
     } else {
-        [self completFacebookLogin];
+        [self.activityIndicator stopAnimating];
+        [self.view removeFromSuperview];
+        [LoginManager.sharedInstance updateFacebookProfile];
     }
 }
 
@@ -62,23 +61,23 @@
     NSLog(@"ButtonDidLogout");
 }
 
--(void)completFacebookLogin {
+
+-(void)showAlertWithTitle:(NSString *)title andMessage:(NSString *)message {
+    UIAlertController * alert = [UIAlertController
+                                 alertControllerWithTitle:title
+                                 message:message
+                                 preferredStyle:UIAlertControllerStyleAlert];
     
-    NSDictionary *parameters = [[NSDictionary alloc] initWithObjectsAndKeys: @"id, email, name, picture.type(large)", @"fields", nil];
     
-    FBSDKGraphRequest *graphRequest = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:parameters];
+    UIAlertAction* okButton = [UIAlertAction
+                               actionWithTitle:@"OK"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+                               }];
     
-    [graphRequest startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-        [self.activityIndicator stopAnimating];
-        if (error) {
-            //Melhorar
-            NSLog(@"%@",error);
-        } else {
-            NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:result];
-            [LoginManager.sharedInstance setUpUserInfo:dict];
-            [self.view removeFromSuperview];
-        }
-    }];
+    [alert addAction:okButton];
+    [self presentViewController:alert animated:YES completion:nil];
 }
+
 
 @end
