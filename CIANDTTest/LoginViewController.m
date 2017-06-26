@@ -38,6 +38,7 @@
 #pragma mark Facebook Delegates
 
 -(void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
+    [self.activityIndicator stopAnimating];
     if (error) {
         [self showAlertWithTitle:NSLocalizedString(@"Ops", nil) andMessage:NSLocalizedString(@"FacebookError", nil)];
         NSLog(@"Error! : %@", error.localizedDescription);
@@ -45,7 +46,6 @@
     } else if (result.isCancelled) {
         return;
     } else {
-        [self.activityIndicator stopAnimating];
         [self.view removeFromSuperview];
         [LoginManager.sharedInstance updateFacebookProfile];
     }
