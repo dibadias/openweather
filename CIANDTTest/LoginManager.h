@@ -17,9 +17,22 @@
 @property NSString * userId;
 @property UIImage  * profilePhoto;
 
-- (void)setUpUserInfo:(NSDictionary *)userDict;
+
+/**
+ Method to check if the user is logged.
+ */
 - (void)checkLogin;
+
+
+/**
+ Logout the user and clear the references
+ */
 - (void)logoutAndClearUser;
+
+
+/**
+ Update the the user profile info. Photo, name and id.
+ */
 - (void)updateFacebookProfile;
 
 @end

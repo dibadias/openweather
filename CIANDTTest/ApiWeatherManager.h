@@ -15,10 +15,26 @@ static NSString * const ICONS_URL = @"http://openweathermap.org/img/w/%@.png";
 
 + (ApiWeatherManager *)sharedInstance;
 
+
+/**
+ Get Weather by the user location
+
+ @param lat latitude of the location
+ @param longitude longitude of the location
+ @param completion success block
+ @param errorCallback error block
+ */
 - (void)getWeatherByUserLocationWithLatidute:(NSString *)lat andLongitude:(NSString *)longitude
                                   completion:(void (^)(Weather *weater)) completion
                                errorCallback:(void (^)(NSError *error)) errorCallback;
 
+
+/**
+ Get the weater based on a city (in this case, London)
+
+ @param completion success block callback
+ @param errorCallback error block callback
+ */
 - (void)getLondonWeatherWithCompletion:(void (^)(Weather *weater)) completion
                                errorCallback:(void (^)(NSError *error)) errorCallback;
 

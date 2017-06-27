@@ -49,9 +49,7 @@
 
 #pragma mark CLLocationManager
 -(void)getUserLocation {
-    
     self.locationManager = [[CLLocationManager alloc] init];
-    
     self.locationManager.delegate = self;
     if (([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]))
     {
@@ -61,7 +59,6 @@
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
     
     [self.locationManager startUpdatingLocation];
-    
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
@@ -71,24 +68,50 @@
 }
 
 #pragma mark API
+
 -(void)getApiRequestWithLocation:(CLLocation *)location {
     NSString *latitude = [NSString stringWithFormat:@"%f", location.coordinate.latitude];
     NSString *longitude = [NSString stringWithFormat:@"%f", location.coordinate.longitude];
-    
+
+    __weak UserWeatherViewController *weakSelf = self;
+
     [self.activityIndicator startAnimating];
     [ApiWeatherManager.sharedInstance getWeatherByUserLocationWithLatidute:latitude andLongitude:longitude completion:^(Weather *weather) {
-        [self.activityIndicator stopAnimating];
-        [self updateUI:weather];
+        [weakSelf.activityIndicator stopAnimating];
+        [weakSelf updateUI:weather];
     } errorCallback:^(NSError *error) {
-        [self showAlertWithTitle:NSLocalizedString(@"Ops", nil) andMessage:NSLocalizedString(@"ConnectionError", nil)];
-        [self.activityIndicator stopAnimating];
+        [weakSelf showAlertWithTitle:NSLocalizedString(@"Ops", nil) andMessage:NSLocalizedString(@"ConnectionError", nil)];
+        [weakSelf.activityIndicator stopAnimating];
     }];
 }
 
 #pragma mark IBActions
 - (void)touchLogoutButton {
-    [LoginManager.sharedInstance logoutAndClearUser];
-    [self.view removeFromSuperview];
+
+    NSString *message = [NSString stringWithFormat: NSLocalizedString(@"LogoutMessage", @""), [LoginManager.sharedInstance userName]];
+    
+    UIAlertController * alertController = [UIAlertController
+                                 alertControllerWithTitle:NSLocalizedString(@"Logout", @"")
+                                 message:message
+                                 preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction* confirmButton = [UIAlertAction
+                                actionWithTitle:NSLocalizedString(@"Logout", @"")
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action) {
+                                    [LoginManager.sharedInstance logoutAndClearUser];
+                                    [self.view removeFromSuperview];
+                                }];
+    
+    UIAlertAction* cancelButton = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"Cancel", @"")
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action){}];
+    
+    [alertController addAction:confirmButton];
+    [alertController addAction:cancelButton];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 @end

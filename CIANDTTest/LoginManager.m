@@ -65,7 +65,7 @@ static dispatch_once_t onceUserManager;
 - (void)logoutAndClearUser {
     
     FBSDKLoginManager *loginFBManager = [[FBSDKLoginManager alloc] init];
-    loginFBManager.logOut;
+    [loginFBManager logOut];
 
     self.userName     = nil;
     self.userId       = nil;
@@ -76,7 +76,7 @@ static dispatch_once_t onceUserManager;
 
 -(void)updateFacebookProfile {
     
-        NSDictionary *parameters = [[NSDictionary alloc] initWithObjectsAndKeys: @"id, email, name, picture.type(large)", @"fields", nil];
+        NSDictionary *parameters = [[NSDictionary alloc] initWithObjectsAndKeys: @"id, email, name, picture.type(small)", @"fields", nil];
         
         FBSDKGraphRequest *graphRequest = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:parameters];
         

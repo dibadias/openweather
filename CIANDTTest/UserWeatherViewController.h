@@ -12,9 +12,6 @@
 
 @interface UserWeatherViewController : WeatherViewController <CLLocationManagerDelegate>
 
-
-@property (nonatomic, weak) IBOutlet UIBarButtonItem *facebookLogoutButton;
-
-- (IBAction)touchLogoutButton;
+- (void)touchLogoutButton;
 
 @end

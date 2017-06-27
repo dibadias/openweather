@@ -5,8 +5,11 @@
   Created by Diego Batista Dias Leite on 25/06/17.
   Copyright © 2017 Diego Batista Dias Leite. All rights reserved.
 */
-"MyWeather" = "Minha região";
-"London"    = "Londres";
-"Ops"       = "Opa";
-"FacebookError" = "Conexão com o Facebook falhou. Tente novamente mais tarde.";
+"MyWeather"       = "Minha região";
+"London"          = "Londres";
+"Ops"             = "Opa";
+"FacebookError"   = "Conexão com o Facebook falhou. Tente novamente mais tarde.";
 "ConnectionError" = "Conexão com a previsão do tempo falhou. Tente novamente mais tarde.";
+"LogoutMessage"   = "%@, Deseja realmente sair?";
+"Logout"          = "Sair";
+"Cancel"          = "Cancelar";
