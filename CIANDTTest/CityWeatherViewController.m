@@ -31,12 +31,15 @@
 #pragma mark API
 -(void)getApiCityWeather {
     [self.activityIndicator startAnimating];
+
+    __weak CityWeatherViewController *weakSelf = self;
+
     [ApiWeatherManager.sharedInstance getLondonWeatherWithCompletion:^(Weather *weather) {
-        [self.activityIndicator stopAnimating];
-        [self updateUI:weather];
+        [weakSelf.activityIndicator stopAnimating];
+        [weakSelf updateUI:weather];
     } errorCallback:^(NSError *error) {
-        [self showAlertWithTitle:NSLocalizedString(@"Ops", nil) andMessage:NSLocalizedString(@"ConnectionError", nil)];
-        [self.activityIndicator stopAnimating];
+        [weakSelf showAlertWithTitle:NSLocalizedString(@"Ops", nil) andMessage:NSLocalizedString(@"ConnectionError", nil)];
+        [weakSelf.activityIndicator stopAnimating];
     }];
 }
 
